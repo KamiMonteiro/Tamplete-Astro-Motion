@@ -1,0 +1,130 @@
+html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Impede o scroll */
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 19px;
+    font-weight: 300;
+    color: white;
+    line-height: 1.5;
+}
+
+
+.top-header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.main-content {
+    position: relative;
+    color: #ffffff;
+    font-family: 'source sans pro', sans-serif;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+/* Estilo do navegador */
+.page-navigator {
+    position: fixed;
+    top: 30px;
+    right: 80px;
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Espaço entre os itens do menu */
+    z-index: 1000;
+}
+
+.page-link {
+    color: white;
+    text-decoration: none;
+    padding: 8px 0;
+    position: relative;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+}
+
+/* Criando a linha abaixo do texto */
+.page-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transform: scaleX(1);
+}
+
+/* Criando o círculo */
+.page-link::before {
+    content: '';
+    position: absolute;
+    bottom: -4px; /* Posição do círculo em relação à linha */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.content-container {
+    height: 100vh;
+    width: 120%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 130px;
+    /*padding: 200px 0;*/
+    box-sizing: border-box; /* Garante que o padding não cause overflow */
+}
+
+.header-content {
+    max-height: calc(200vh - 200px); /* Ajusta a altura máxima considerando os espaços */
+    /*overflow-y: auto; /* Permite scroll apenas no conteúdo se necessário */
+    background-color: rgba(0, 0, 0, 0.3); /* Fundo semi-transparente preto */
+    color: #fff;
+    padding: 20px;
+    text-align: left;
+    flex: 0 0 60%; /* Não cresce mais que 40% da largura */
+    height: 50vh; /* Altura definida como metade da viewport */
+    /*overflow: auto; /* Caso o conteúdo seja maior que a área definida, adiciona scroll */
+    /*margin-right: 100px; /* Espaço entre o header-content e as imagens */    
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura e altura definidas */
+}
+/* Container para o conteúdo principal (header e imagens) */
+.main-content-wrapper {
+    display: flex;
+    flex: 1;
+    gap: 60px;
+    margin-top: 80px; /* Espaço para o header e navegação */
+    margin-left: 40%;
+}

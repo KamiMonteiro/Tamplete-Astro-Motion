@@ -1,0 +1,216 @@
+html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Impede o scroll */
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 19px;
+    font-weight: 300;
+    color: white;
+    line-height: 1.5;
+}
+
+
+.top-header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.main-content {
+    position: relative;
+    color: #ffffff;
+    font-family: 'source sans pro', sans-serif;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+/* Estilo do navegador */
+.page-navigator {
+    position: fixed;
+    top: 30px;
+    right: 80px;
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Espaço entre os itens do menu */
+    z-index: 1000;
+}
+
+.page-link {
+    color: white;
+    text-decoration: none;
+    padding: 8px 0;
+    position: relative;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+}
+
+/* Criando a linha abaixo do texto */
+.page-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transform: scaleX(1);
+}
+
+/* Criando o círculo */
+.page-link::before {
+    content: '';
+    position: absolute;
+    bottom: -4px; /* Posição do círculo em relação à linha */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* Ajuste do container do botão */
+.button-container {
+    position: absolute; /* Removendo position: fixed */
+    text-align: justify;
+    margin-top: 30%; /* Espaço entre o conteúdo e o botão */
+    margin-left: 25%;;
+}
+
+.button {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000;
+    padding: 15px 40px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    color: rgb(153,255,102);
+   /* transform: translateY(-2px);*/
+}
+
+/* Ajuste do container principal para incluir o botão */
+.content-container {
+    display: flex;
+    flex-direction:row; /* Alterado para column para empilhar os elementos */
+    min-height: 100vh;
+    z-index: 1;
+    position: relative;
+    padding: 100px 60px;
+}
+
+/* Container para o conteúdo principal (header e imagens) */
+.main-content-wrapper {
+    display: flex;
+    flex: 1;
+    gap: 60px;
+    margin-top: 80px; /* Espaço para o header e navegação */
+}
+
+/* Ajustes de responsividade */
+@media screen and (max-width: 768px) {
+    .page-navigator {
+        width: 100%;
+        justify-content: center;
+        top: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 15px 0;
+    }
+    
+    .main-content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.gallery-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-wrapper {
+    width: 1200px; /* Largura para 3 imagens */
+    height: 100vh;
+    overflow: hidden; /*mostra abarra de rolagem */
+    /*padding: 0 20px;
+    margin: 0 auto;*/
+}
+
+.gallery {
+    display: flex;
+    gap: 30px;
+    height: 100%;
+    padding: 300px 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Adiciona snap points */
+    scroll-behavior: smooth;
+    scrollbar-width: thin; /* Scrollbar fina para Firefox */
+    scrollbar-color: rgba(255, 255, 255, 0.5) rgba(0, 0, 0, 0.1); /* Cor da scrollbar para Firefox */
+}
+
+/* Estilização da scrollbar para Chrome/Safari/Edge */
+.gallery::-webkit-scrollbar {
+    height: 10px;
+}
+
+.gallery::-webkit-scrollbar-track {
+    background: rgba(20, 222, 6, 0.1);
+    border-radius: 4px;
+}
+
+.gallery::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.gallery::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.gallery-img {
+    height: 400px; /* Aumentei a altura de 300px para 400px */
+    width: 300px; /* Ajustei a largura proporcionalmente */
+    min-width: 10%; /* Ajustei a largura mínima proporcionalmente */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    scroll-snap-align: center; /* Faz as imagens se alinharem ao scroll */
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+}

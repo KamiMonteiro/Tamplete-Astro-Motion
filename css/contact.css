@@ -1,0 +1,200 @@
+html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Impede o scroll */
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 19px;
+    font-weight: 300;
+    color: white;
+    line-height: 1.5;
+}
+
+
+.top-header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.main-content {
+    position: relative;
+    color: #ffffff;
+    font-family: 'source sans pro', sans-serif;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+/* Estilo do navegador */
+.page-navigator {
+    position: fixed;
+    top: 30px;
+    right: 80px;
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Espaço entre os itens do menu */
+    z-index: 1000;
+}
+
+.page-link {
+    color: white;
+    text-decoration: none;
+    padding: 8px 0;
+    position: relative;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+}
+
+/* Criando a linha abaixo do texto */
+.page-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transform: scaleX(1);
+}
+
+/* Criando o círculo */
+.page-link::before {
+    content: '';
+    position: absolute;
+    bottom: -4px; /* Posição do círculo em relação à linha */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+
+/* Container Principal da Seção de Contato */
+.contact-section {
+    display: flex;
+    margin-top: 4%;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    box-sizing: border-box;
+}
+
+.contact-container {
+    display: flex;
+    /*margin-top: 4%;*/
+    max-width: 1200px;
+    width: 100%;
+    gap: 100px;
+}
+
+/* Coluna do Formulário */
+.contact-form {
+    flex: 1;
+}
+
+.contact-form h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form button {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Coluna das Informações de Contato e Mapa */
+.contact-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-info p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.tm-link-white {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.tm-link-white:hover {
+    opacity: 0.8;
+}
+
+.map-container {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .contact-form,
+    .contact-info {
+        flex: none;
+        width: 100%;
+    }
+}
