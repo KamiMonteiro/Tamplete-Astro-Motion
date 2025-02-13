@@ -52,6 +52,8 @@ video {
     z-index: -1;
 }
 
+
+/*referente ao quadro onde fala da introdução*/
 .content-container {
     height: 100vh;
     display: flex;
@@ -86,6 +88,7 @@ video {
     height: auto;
     margin: 10px 0; /* Espaçamento entre as imagens */
 }
+
 
 /* Estilo do navegador */
 .page-navigator {
@@ -131,6 +134,9 @@ video {
     background-color: white;
     border-radius: 50%;
 }
+
+
+
 
 /* Ajuste do container do botão */
 .button-container {
